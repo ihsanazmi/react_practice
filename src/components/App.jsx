@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import Search from './SearchBar'
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <h1>Component App</h1>
+            <div className='container'>
+                <h1 className='text-center mt-3 mb-5'>Image Search Engine</h1>
+                <Search/>
             </div>
         )
     }
