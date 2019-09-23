@@ -3,7 +3,12 @@ import axios from'axios'
 import Search from './SearchBar'
 
 class App extends Component {
-
+    
+    state ={
+        pictures: ''
+    }
+    
+    // Term adalah inputan dari user di komponen Search Bar
     onSearchSubmit = (term) =>{
         // Request gambar ke unsplash
         axios.get(
@@ -17,7 +22,9 @@ class App extends Component {
                 }
             }
         ).then((res)=>{
-            console.log(res.data.results)
+            // then akan di jalankan ketika proses request berhasil
+            // console.log(res.data.results)
+            this.setState({pictures: res.data.results})
         })
     }
 
@@ -25,6 +32,7 @@ class App extends Component {
         return (
             <div className='container'>
                 <h1 className='text-center mt-3 mb-5'>Image Search Engine</h1>
+                {/* 'asdf'  */}
                 <Search asdf={this.onSearchSubmit}/>
             </div>
         )
