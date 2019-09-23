@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from'axios'
 import Search from './SearchBar'
+import Images from './ImageResults'
 
 class App extends Component {
     
     state ={
-        pictures: ''
+        pictures: []
     }
     
     // Term adalah inputan dari user di komponen Search Bar
@@ -34,6 +35,9 @@ class App extends Component {
                 <h1 className='text-center mt-3 mb-5'>Image Search Engine</h1>
                 {/* 'asdf'  */}
                 <Search asdf={this.onSearchSubmit}/>
+                <div className="card-columns">
+                    <Images abc={this.state.pictures}/>
+                </div>
             </div>
         )
     }
