@@ -6,14 +6,22 @@ class SearchBar extends Component {
         term: ''
     }
 
+    onSubmitForm = (event) =>{
+        // Function yang akan men-cancel halaman dari refresh
+        event.preventDefault()
+
+        this.props.asdf(this.state.term)
+
+    }
+
     render() {
         return (
             <div>
-                <form onSubmit={(event)=>{event.preventDefault()}} className="form-group">
+                <form onSubmit={ this.onSubmitForm } className="form-group">
                     <input 
                         type="text" 
                         className="form-control"
-                        onChange={(event)=>{console.log(event.target.value)}}
+                        onChange={(event)=>{this.setState({term: event.target.value})}}
                     />
                 </form>
             </div>
@@ -23,6 +31,7 @@ class SearchBar extends Component {
 
 export default SearchBar
 
+// even.target.value berisi string yang diinput / diketik oleh user
 // Event handler, bertugas men-handle ketika suatu event terjadi
     //event: onClick, onSubmit, onChange
 // onChange memungkinkan kita untuk memanggil function ketika ada perubahan di text input
